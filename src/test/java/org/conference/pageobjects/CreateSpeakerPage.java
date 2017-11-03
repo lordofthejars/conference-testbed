@@ -1,5 +1,6 @@
 package org.conference.pageobjects;
 
+import org.jboss.arquillian.graphene.GrapheneRuntime;
 import org.jboss.arquillian.graphene.page.Location;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,12 +22,14 @@ public class CreateSpeakerPage {
     @FindBy(id = "create:save_button")
     private WebElement save;
 
-    public void createSpeaker(Speaker speaker) {
+    public SpeakerPage createSpeaker(Speaker speaker) {
         firstname.sendKeys(speaker.getFirstname());
         surname.sendKeys(speaker.getSurname());
         twitter.sendKeys(speaker.getTwitter());
 
         guardHttp(save).click();
+
+        return GrapheneRuntime.getInstance().goTo(SpeakerPage.class);
 
     }
 

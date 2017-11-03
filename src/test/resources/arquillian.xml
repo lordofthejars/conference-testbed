@@ -10,7 +10,7 @@
         await:
           strategy: log
           match: 'regexp:.*Registered web context.*'
-          timeout: 50
+          timeout: 120
     </property>
   </extension>
 

@@ -24,9 +24,10 @@ public class SpeakerTest {
         final Speaker speaker = new Speaker("Alex", "Soto", "@alexsotob");
 
         // when
-        SpeakerPage speakerPage = homePage.navigateToSpeakerLink();
-        final CreateSpeakerPage createSpeakerPage = speakerPage.navigateToCreateNewSpeaker();
-        createSpeakerPage.createSpeaker(speaker);
+        SpeakerPage speakerPage = homePage
+            .navigateToSpeakerLink()
+            .navigateToCreateNewSpeaker()
+            .createSpeaker(speaker);
 
         // then
         speakerPage.assertThatSpeakerIsAdded(speaker);
